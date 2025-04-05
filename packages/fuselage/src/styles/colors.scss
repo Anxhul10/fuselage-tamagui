@@ -1,0 +1,334 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use '~@rocket.chat/fuselage-tokens/dist/colors.scss' as token-colors;
+
+$-map-type-to-prefix: (
+  neutral: 'n',
+  blue: 'b',
+  red: 'r',
+  yellow: 'y',
+  green: 'g',
+  purple: 'p',
+  orange: 'o',
+);
+
+@function _get-palette-color($type, $grade, $alpha) {
+  @if not($grade % 50 == 0 and math.div($grade, 50) >= 1) {
+    @error 'invalid color grade';
+  }
+
+  @if not($alpha == null or ($alpha >= 0 and $alpha <= 1)) {
+    @error 'invalid color alpha';
+  }
+
+  $prefix: map.get($-map-type-to-prefix, $type);
+  @if not $prefix {
+    @error 'invalid color type';
+  }
+
+  $base-color: map.get(token-colors.$colors, #{$prefix}#{$grade});
+
+  @if not $base-color {
+    @error 'invalid color reference: #{$prefix}#{$grade}';
+  }
+
+  @if ($alpha != null) {
+    @return (
+      --rcx-color-#{$type}-#{$grade}-#{$alpha * 100},
+      color.change($base-color, $alpha: $alpha)
+    );
+  }
+
+  @return (--rcx-color-#{$type}-#{$grade}, $base-color);
+}
+
+@function neutral($grade, $alpha: null) {
+  $pair: _get-palette-color(neutral, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function blue($grade, $alpha: null) {
+  $pair: _get-palette-color(blue, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function green($grade, $alpha: null) {
+  $pair: _get-palette-color(green, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function yellow($grade, $alpha: null) {
+  $pair: _get-palette-color(yellow, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function red($grade, $alpha: null) {
+  $pair: _get-palette-color(red, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function orange($grade, $alpha: null) {
+  $pair: _get-palette-color(orange, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+@function purple($grade, $alpha: null) {
+  $pair: _get-palette-color(purple, $grade, $alpha);
+  @return var(list.nth($pair, 1), list.nth($pair, 2));
+}
+
+$-surfaces: (
+  light: white,
+  tint: neutral(100),
+  room: white,
+  neutral: neutral(400),
+  disabled: neutral(100),
+  selected: neutral(450),
+  hover: neutral(200),
+  dark: neutral(900),
+  featured: purple(700),
+  featured-hover: purple(800),
+  overlay: neutral(800),
+  sidebar: neutral(400),
+);
+
+@function surface($type) {
+  $color: map.get($-surfaces, $type);
+  @return var(--rcx-color-surface-#{$type}, $color);
+}
+
+$-font: (
+  white: white,
+  disabled: neutral(500),
+  annotation: neutral(600),
+  hint: neutral(700),
+  secondary-info: neutral(700),
+  default: neutral(800),
+  titles-labels: neutral(900),
+  info: blue(600),
+  danger: red(600),
+  pure-black: neutral(800),
+  pure-white: white,
+);
+
+@function font($type, $scape: false) {
+  $color: map.get($-font, $type);
+
+  @if $scape {
+    @return $color;
+  }
+
+  @return var(--rcx-color-font-#{$type}, $color);
+}
+
+$-status-bullet: (
+  online: green(800),
+  away: yellow(800),
+  busy: red(600),
+  disabled: orange(500),
+  offline: neutral(700),
+  loading: neutral(600),
+);
+
+@function status-bullet($type) {
+  $color: map.get($-status-bullet, $type);
+  @return var(--rcx-color-status-bullet-#{$type}, $color);
+}
+
+$-status-backgrounds: (
+  success: green(200),
+  warning: yellow(200),
+  warning-2: yellow(100),
+  danger: red(200),
+  service-1: orange(200),
+  service-2: purple(200),
+  info: blue(200),
+);
+
+@function status-background($type) {
+  $color: map.get($-status-backgrounds, $type);
+  @return var(--rcx-color-status-background-#{$type}, $color);
+}
+
+$-status-font: (
+  on-success: green(800),
+  on-warning: yellow(800),
+  on-warning-2: neutral(800),
+  on-danger: red(800),
+  on-service-1: orange(800),
+  on-service-2: purple(600),
+  on-info: blue(600),
+);
+
+@function status-font($type) {
+  $color: map.get($-status-font, $type);
+  @return var(--rcx-color-status-font-#{$type}, $color);
+}
+
+$-strokes: (
+  extra-light: neutral(250),
+  light: neutral(500),
+  medium: neutral(600),
+  dark: neutral(700),
+  extra-dark: neutral(800),
+  extra-light-highlight: blue(200),
+  highlight: blue(500),
+  extra-light-error: red(200),
+  error: red(500),
+);
+
+@function stroke($type) {
+  $color: map.get($-strokes, $type);
+  @return var(--rcx-color-stroke-#{$type}, $color);
+}
+
+$-badge-backgrounds: (
+  level-0: neutral(400),
+  level-1: neutral(600),
+  level-2: blue(500),
+  level-3: orange(500),
+  level-4: red(500),
+);
+
+@function badge($type) {
+  $color: map.get($-badge-backgrounds, $type);
+  @return var(--rcx-color-badge-background-#{$type}, $color);
+}
+
+$shadow-colors: (
+  highlight: blue(200),
+  extra-light-error: red(200),
+  danger: red(100),
+  elevation-1: neutral(800, 0.1),
+  elevation-2x: neutral(800, 0.08),
+  elevation-2y: neutral(800, 0.12),
+  elevation-border: stroke(extra-light),
+);
+@function shadow($type) {
+  $color: map.get($shadow-colors, $type);
+  @return var(--rcx-color-shadow-#{$type}, $color);
+}
+
+$-button-backgrounds: (
+  // primary
+  primary-default: blue(500),
+  primary-hover: blue(600),
+  primary-press: blue(700),
+  primary-focus: blue(500),
+  primary-keyfocus: blue(500),
+  primary-disabled: blue(200),
+  // secondary
+  secondary-default: neutral(400),
+  secondary-hover: neutral(500),
+  secondary-press: neutral(600),
+  secondary-focus: neutral(400),
+  secondary-keyfocus: neutral(400),
+  secondary-disabled: neutral(300),
+  // danger
+  danger-default: red(500),
+  danger-hover: red(600),
+  danger-press: red(700),
+  danger-focus: red(500),
+  danger-keyfocus: red(500),
+  danger-disabled: red(200),
+  // secondary-danger
+  secondary-danger-default: neutral(400),
+  secondary-danger-hover: neutral(500),
+  secondary-danger-press: neutral(600),
+  secondary-danger-focus: neutral(400),
+  secondary-danger-keyfocus: neutral(400),
+  secondary-danger-disabled: neutral(300),
+  // warning
+  warning-default: yellow(400),
+  warning-hover: yellow(500),
+  warning-press: yellow(600),
+  warning-focus: yellow(400),
+  warning-keyfocus: yellow(400),
+  warning-disabled: yellow(200),
+  // secondary-warning
+  secondary-warning-default: neutral(400),
+  secondary-warning-hover: neutral(500),
+  secondary-warning-press: neutral(600),
+  secondary-warning-focus: neutral(400),
+  secondary-warning-keyfocus: neutral(400),
+  secondary-warning-disabled: neutral(300),
+  // success
+  success-default: green(800),
+  success-hover: green(900),
+  success-press: green(1000),
+  success-focus: green(800),
+  success-keyfocus: green(800),
+  success-disabled: green(200),
+  // secondary-success
+  secondary-success-default: neutral(400),
+  secondary-success-hover: neutral(500),
+  secondary-success-press: neutral(600),
+  secondary-success-focus: neutral(400),
+  secondary-success-keyfocus: neutral(400),
+  secondary-success-disabled: neutral(300)
+);
+
+$-button-fonts: (
+  // primary
+  on-primary: white,
+  on-primary-disabled: white,
+  // secondary
+  on-secondary: neutral(900),
+  on-secondary-disabled: neutral(500),
+  // danger
+  on-danger: white,
+  on-danger-disabled: white,
+  // secondary-danger
+  on-secondary-danger: red(700),
+  on-secondary-danger-disabled: red(300),
+  // warning
+  on-warning: neutral(900),
+  on-warning-disabled: neutral(600),
+  // secondary-warning
+  on-secondary-warning: yellow(900),
+  on-secondary-warning-disabled: yellow(600),
+  // success
+  on-success: white,
+  on-success-disabled: white,
+  // secondary-success
+  on-secondary-success: green(800),
+  on-secondary-success-disabled: green(400),
+  // disabled
+  on-disabled: neutral(600)
+);
+
+@function button($type) {
+  @if (map.get($-button-backgrounds, $type)) {
+    $background: map.get($-button-backgrounds, $type);
+    @return var(--rcx-color-button-background-#{$type}, $background);
+  }
+  @if map.get($-button-fonts, $type) {
+    $foreground: map.get($-button-fonts, $type);
+    @return var(--rcx-color-button-font-#{$type}, $foreground);
+  }
+  @error "Unknown button type #{$type}.";
+}
+
+$-neutral-alpha-level: (
+  8: neutral(800, 0.08),
+  10: neutral(800, 0.1),
+  12: neutral(800, 0.12),
+  50: neutral(800, 0.5),
+);
+
+@function surface-neutral-alpha($level) {
+  @return map.get($-neutral-alpha-level, $level);
+}
+
+$-elevation-level: (
+  border: stroke(extra-light),
+  1: surface-neutral-alpha(10),
+  '2x': surface-neutral-alpha(8),
+  '2y': surface-neutral-alpha(12),
+);
+
+@function elevation($level) {
+  @return map.get($-elevation-level, $level);
+}

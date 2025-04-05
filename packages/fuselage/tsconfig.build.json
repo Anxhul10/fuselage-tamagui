@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src"
+  },
+  "include": ["./src"],
+  "exclude": [
+    "./**/*.stories.tsx",
+    "./**/*.spec.tsx",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ]
+}

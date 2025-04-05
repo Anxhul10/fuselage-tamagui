@@ -1,0 +1,141 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    outputs:
+      branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.2.0'
+          cache: 'yarn'
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - run: yarn run ci
+      - run: yarn run docs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: storybooks
+          path: |
+            packages/fuselage/storybook-static
+            packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: |
+            static
+      - run: |
+          ref='${{ github.ref }}'
+          echo "::set-output name=branch-name::$(echo "${ref:11}")"
+        id: set-branch-name
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: packages/**/dist/*
+
+  publish-to-npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.2.0'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@rocket.chat'
+          cache: 'yarn'
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: packages
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+
+      - name: Create Release Pull Request
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve workspace dependencies
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: yarn resolve-workspace-deps
+
+      - name: Publish to npm
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        uses: changesets/action@v1
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-to-gh-pages:
+    name: Publish to GitHub Pages
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-test
+    environment:
+      name: github-pages
+      url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/download-artifact@v4
+        with:
+          name: storybooks
+          path: packages
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: docs
+          path: .
+      - run: |
+          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "layout/${{ needs.build-and-test.outputs.branch-name }}" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/fuselage/storybook-static" "fuselage/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/onboarding-ui/storybook-static" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
+          mv -v "packages/layout/storybook-static" "layout/${{ needs.build-and-test.outputs.branch-name }}"
+          rm -rf packages
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: .
+          commit_message: 'Deploy to Github Pages [skip ci]'
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

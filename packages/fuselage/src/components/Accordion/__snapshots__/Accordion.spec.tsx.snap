@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+    >
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":r1:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":r0:"
+          >
+            Item #1
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":r1:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #1
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":r3:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":r2:"
+          >
+            Item #2
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":r3:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #2
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":r5:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":r4:"
+          >
+            Item #3
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":r5:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #3
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders DisabledItem without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+    >
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":rd:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":rc:"
+          >
+            Item #1
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":rd:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #1
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":rf:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-accordion-item__bar--disabled"
+          role="button"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":re:"
+          >
+            Item #2
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":rf:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #2
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":rh:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":rg:"
+          >
+            Item #3
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":rh:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #3
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders ExpandedItemByDefault without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+    >
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":r7:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":r6:"
+          >
+            Item #1
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":r7:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #1
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":r9:"
+          aria-expanded="true"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":r8:"
+          >
+            Item #2
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron--up rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel rcx-accordion-item__panel--expanded"
+          id=":r9:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #2
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls=":rb:"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id=":ra:"
+          >
+            Item #3
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id=":rb:"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+          >
+            Content #3
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;

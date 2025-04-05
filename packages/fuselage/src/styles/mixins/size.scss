@@ -1,0 +1,8 @@
+@mixin square($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin resize($scale) {
+  transform: scale($scale);
+}
