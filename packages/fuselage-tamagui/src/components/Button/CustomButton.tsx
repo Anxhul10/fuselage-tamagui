@@ -15,7 +15,7 @@ import {
 } from '@tamagui/web'
 import type { FunctionComponent } from 'react'
 import { useContext } from 'react'
-
+import { View } from 'tamagui';
 type ButtonVariant = 'outlined'
 
 export const ButtonContext = createStyledContext<
@@ -398,14 +398,19 @@ const ButtonIcon = (props: { children: React.ReactNode; scaleIcon?: number }) =>
   return getThemedIcon(children)
 }
 
+
 const ButtonComponent = ButtonFrame.styleable<ButtonExtraProps>(
   function Button(props, ref) {
     // @ts-ignore
     const { props: buttonProps } = useButton(props)
 
-    return <ButtonFrame data-disable-theme {...buttonProps} ref={ref} />
+    return <ButtonFrame data-disable-theme {...buttonProps} ref={ref} >
+      
+      </ButtonFrame>
   }
 )
+
+
 /**
  * @summary A Button is a clickable element that can be used to trigger actions such as submitting forms, navigating to other pages, or performing other actions.
  * @see — Docs https://tamagui.dev/ui/button

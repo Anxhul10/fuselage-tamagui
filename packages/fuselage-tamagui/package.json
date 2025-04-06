@@ -16,11 +16,14 @@
     "@storybook/addon-links": "^8.6.12",
     "@storybook/addon-react-native-web": "^0.0.29",
     "@tamagui/config": "^1.125.32",
-    "@tamagui/vite-plugin": "^1.125.32",
+    "@tamagui/core": "~1.125.33",
+    "@tamagui/lucide-icons": "~1.125.33",
+    "@tamagui/vite-plugin": "~1.125.33",
     "@vitejs/plugin-react-swc": "^3.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tamagui": "^1.125.32"
+    "tamagui": "~1.125.33",
+    "tamagui-phosphor-icons": "~0.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",

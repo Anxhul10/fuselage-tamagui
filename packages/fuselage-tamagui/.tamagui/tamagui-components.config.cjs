@@ -186,9 +186,9 @@ var require_cjs2 = __commonJS({
   }
 });
 
-// node_modules/@tamagui/use-presence/dist/cjs/PresenceContext.cjs
+// node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/PresenceContext.cjs
 var require_PresenceContext = __commonJS({
-  "node_modules/@tamagui/use-presence/dist/cjs/PresenceContext.cjs"(exports2, module2) {
+  "node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/PresenceContext.cjs"(exports2, module2) {
     var __create2 = Object.create;
     var __defProp2 = Object.defineProperty;
     var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
@@ -238,9 +238,9 @@ var require_PresenceContext = __commonJS({
   }
 });
 
-// node_modules/@tamagui/use-presence/dist/cjs/usePresence.cjs
+// node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/usePresence.cjs
 var require_usePresence = __commonJS({
-  "node_modules/@tamagui/use-presence/dist/cjs/usePresence.cjs"(exports2, module2) {
+  "node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/usePresence.cjs"(exports2, module2) {
     var __create2 = Object.create;
     var __defProp2 = Object.defineProperty;
     var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
@@ -306,9 +306,9 @@ var require_usePresence = __commonJS({
   }
 });
 
-// node_modules/@tamagui/use-presence/dist/cjs/index.cjs
+// node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/index.cjs
 var require_cjs3 = __commonJS({
-  "node_modules/@tamagui/use-presence/dist/cjs/index.cjs"(exports2, module2) {
+  "node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/cjs/index.cjs"(exports2, module2) {
     var __defProp2 = Object.defineProperty;
     var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
     var __getOwnPropNames2 = Object.getOwnPropertyNames;
@@ -1241,6 +1241,7 @@ var require_validStyleProps = __commonJS({
       transition: true,
       textWrap: true,
       backdropFilter: true,
+      WebkitBackdropFilter: true,
       background: true,
       backgroundAttachment: true,
       backgroundBlendMode: true,
@@ -6948,21 +6949,6 @@ var require_createPrefixer = __commonJS({
   }
 });
 
-// node_modules/inline-style-prefixer/lib/plugins/backgroundClip.js
-var require_backgroundClip = __commonJS({
-  "node_modules/inline-style-prefixer/lib/plugins/backgroundClip.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = backgroundClip;
-    function backgroundClip() {
-      return null;
-    }
-    __name(backgroundClip, "backgroundClip");
-  }
-});
-
 // node_modules/css-in-js-utils/lib/assignStyle.js
 var require_assignStyle = __commonJS({
   "node_modules/css-in-js-utils/lib/assignStyle.js"(exports2) {
@@ -7427,54 +7413,6 @@ var require_crossFade = __commonJS({
   }
 });
 
-// node_modules/inline-style-prefixer/lib/plugins/cursor.js
-var require_cursor = __commonJS({
-  "node_modules/inline-style-prefixer/lib/plugins/cursor.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = cursor;
-    var prefixes = ["-webkit-", "-moz-", ""];
-    var values = {
-      "zoom-in": true,
-      "zoom-out": true,
-      grab: true,
-      grabbing: true
-    };
-    function cursor(property, value) {
-      if (property === "cursor" && values.hasOwnProperty(value)) {
-        return prefixes.map(function(prefix) {
-          return prefix + value;
-        });
-      }
-    }
-    __name(cursor, "cursor");
-  }
-});
-
-// node_modules/inline-style-prefixer/lib/plugins/filter.js
-var require_filter = __commonJS({
-  "node_modules/inline-style-prefixer/lib/plugins/filter.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.default = filter;
-    var _cssInJsUtils = require_lib();
-    var FILTER_REGEX = /filter\(/g;
-    var prefixes = ["-webkit-", ""];
-    function filter(property, value) {
-      if (typeof value === "string" && !(0, _cssInJsUtils.isPrefixedValue)(value) && value.indexOf("filter(") !== -1) {
-        return prefixes.map(function(prefix) {
-          return value.replace(FILTER_REGEX, prefix + "filter(");
-        });
-      }
-    }
-    __name(filter, "filter");
-  }
-});
-
 // node_modules/inline-style-prefixer/lib/plugins/imageSet.js
 var require_imageSet = __commonJS({
   "node_modules/inline-style-prefixer/lib/plugins/imageSet.js"(exports2) {
@@ -7684,10 +7622,7 @@ var require_static = __commonJS({
     var _interopRequireDefault = require_interopRequireDefault().default;
     exports2.__esModule = true;
     exports2.default = void 0;
-    var _backgroundClip = _interopRequireDefault(require_backgroundClip());
     var _crossFade = _interopRequireDefault(require_crossFade());
-    var _cursor = _interopRequireDefault(require_cursor());
-    var _filter = _interopRequireDefault(require_filter());
     var _imageSet = _interopRequireDefault(require_imageSet());
     var _logical = _interopRequireDefault(require_logical());
     var _position = _interopRequireDefault(require_position());
@@ -7699,7 +7634,7 @@ var require_static = __commonJS({
     var wms = ["Webkit", "ms"];
     var wmms = ["Webkit", "Moz", "ms"];
     var _default = exports2.default = {
-      plugins: [_backgroundClip.default, _crossFade.default, _cursor.default, _filter.default, _imageSet.default, _logical.default, _position.default, _sizing.default, _transition.default],
+      plugins: [_crossFade.default, _imageSet.default, _logical.default, _position.default, _sizing.default, _transition.default],
       prefixMap: {
         appearance: wmms,
         userSelect: wm,
@@ -8497,7 +8432,7 @@ var require_preprocess = __commonJS({
     "use strict";
     var _interopRequireDefault = require_interopRequireDefault().default;
     exports2.__esModule = true;
-    exports2.preprocess = exports2.default = exports2.createTransformValue = exports2.createTextShadowValue = exports2.createBoxShadowValue = void 0;
+    exports2.preprocess = exports2.default = exports2.createTransformValue = exports2.createTransformOriginValue = exports2.createTextShadowValue = exports2.createBoxShadowValue = exports2.createBoxShadowArrayValue = void 0;
     var _normalizeColor = _interopRequireDefault(require_normalizeColor());
     var _normalizeValueWithProperty = _interopRequireDefault(require_normalizeValueWithProperty());
     var _warnOnce = require_warnOnce();
@@ -8531,6 +8466,22 @@ var require_preprocess = __commonJS({
       }
     }, "createTextShadowValue");
     exports2.createTextShadowValue = createTextShadowValue;
+    var mapBoxShadow = /* @__PURE__ */ __name((boxShadow) => {
+      if (typeof boxShadow === "string") {
+        return boxShadow;
+      }
+      var offsetX = (0, _normalizeValueWithProperty.default)(boxShadow.offsetX) || 0;
+      var offsetY = (0, _normalizeValueWithProperty.default)(boxShadow.offsetY) || 0;
+      var blurRadius = (0, _normalizeValueWithProperty.default)(boxShadow.blurRadius) || 0;
+      var spreadDistance = (0, _normalizeValueWithProperty.default)(boxShadow.spreadDistance) || 0;
+      var color = (0, _normalizeColor.default)(boxShadow.color) || "black";
+      var position = boxShadow.inset ? "inset " : "";
+      return "" + position + offsetX + " " + offsetY + " " + blurRadius + " " + spreadDistance + " " + color;
+    }, "mapBoxShadow");
+    var createBoxShadowArrayValue = /* @__PURE__ */ __name((value) => {
+      return value.map(mapBoxShadow).join(", ");
+    }, "createBoxShadowArrayValue");
+    exports2.createBoxShadowArrayValue = createBoxShadowArrayValue;
     var mapTransform = /* @__PURE__ */ __name((transform) => {
       var type = Object.keys(transform)[0];
       var value = transform[type];
@@ -8545,6 +8496,10 @@ var require_preprocess = __commonJS({
       return value.map(mapTransform).join(" ");
     }, "createTransformValue");
     exports2.createTransformValue = createTransformValue;
+    var createTransformOriginValue = /* @__PURE__ */ __name((value) => {
+      return value.map((v) => (0, _normalizeValueWithProperty.default)(v)).join(" ");
+    }, "createTransformOriginValue");
+    exports2.createTransformOriginValue = createTransformOriginValue;
     var PROPERTIES_STANDARD = {
       borderBottomEndRadius: "borderEndEndRadius",
       borderBottomStartRadius: "borderEndStartRadius",
@@ -8582,10 +8537,8 @@ var require_preprocess = __commonJS({
       if (options.shadow === true, style.shadowColor != null || style.shadowOffset != null || style.shadowOpacity != null || style.shadowRadius != null) {
         (0, _warnOnce.warnOnce)("shadowStyles", '"shadow*" style props are deprecated. Use "boxShadow".');
         var boxShadowValue = createBoxShadowValue(style);
-        if (boxShadowValue != null && nextStyle.boxShadow == null) {
-          var boxShadow = style.boxShadow;
-          var value = boxShadow ? boxShadow + ", " + boxShadowValue : boxShadowValue;
-          nextStyle.boxShadow = value;
+        if (boxShadowValue != null) {
+          nextStyle.boxShadow = boxShadowValue;
         }
       }
       if (options.textShadow === true, style.textShadowColor != null || style.textShadowOffset != null || style.textShadowRadius != null) {
@@ -8593,8 +8546,8 @@ var require_preprocess = __commonJS({
         var textShadowValue = createTextShadowValue(style);
         if (textShadowValue != null && nextStyle.textShadow == null) {
           var textShadow = style.textShadow;
-          var _value = textShadow ? textShadow + ", " + textShadowValue : textShadowValue;
-          nextStyle.textShadow = _value;
+          var value = textShadow ? textShadow + ", " + textShadowValue : textShadowValue;
+          nextStyle.textShadow = value;
         }
       }
       for (var originalProp in style) {
@@ -8606,28 +8559,39 @@ var require_preprocess = __commonJS({
         }
         var originalValue = style[originalProp];
         var prop = PROPERTIES_STANDARD[originalProp] || originalProp;
-        var _value2 = originalValue;
+        var _value = originalValue;
         if (!Object.prototype.hasOwnProperty.call(style, originalProp) || prop !== originalProp && style[prop] != null) {
           continue;
         }
-        if (prop === "aspectRatio" && typeof _value2 === "number") {
-          nextStyle[prop] = _value2.toString();
-        } else if (prop === "fontVariant") {
-          if (Array.isArray(_value2) && _value2.length > 0) {
-            _value2 = _value2.join(" ");
+        if (prop === "aspectRatio" && typeof _value === "number") {
+          nextStyle[prop] = _value.toString();
+        } else if (prop === "boxShadow") {
+          if (Array.isArray(_value)) {
+            _value = createBoxShadowArrayValue(_value);
           }
-          nextStyle[prop] = _value2;
+          var boxShadow = nextStyle.boxShadow;
+          nextStyle.boxShadow = boxShadow ? _value + ", " + boxShadow : _value;
+        } else if (prop === "fontVariant") {
+          if (Array.isArray(_value) && _value.length > 0) {
+            _value = _value.join(" ");
+          }
+          nextStyle[prop] = _value;
         } else if (prop === "textAlignVertical") {
           if (style.verticalAlign == null) {
-            nextStyle.verticalAlign = _value2 === "center" ? "middle" : _value2;
+            nextStyle.verticalAlign = _value === "center" ? "middle" : _value;
           }
         } else if (prop === "transform") {
-          if (Array.isArray(_value2)) {
-            _value2 = createTransformValue(_value2);
+          if (Array.isArray(_value)) {
+            _value = createTransformValue(_value);
           }
-          nextStyle.transform = _value2;
+          nextStyle.transform = _value;
+        } else if (prop === "transformOrigin") {
+          if (Array.isArray(_value)) {
+            _value = createTransformOriginValue(_value);
+          }
+          nextStyle.transformOrigin = _value;
         } else {
-          nextStyle[prop] = _value2;
+          nextStyle[prop] = _value;
         }
       }
       return nextStyle;
@@ -9932,28 +9896,10 @@ var require_findNodeHandle = __commonJS({
     "use strict";
     exports2.__esModule = true;
     exports2.default = void 0;
-    var _reactDom = require("react-dom");
     var findNodeHandle = /* @__PURE__ */ __name((component) => {
-      var node;
-      try {
-        node = (0, _reactDom.findDOMNode)(component);
-      } catch (e) {
-      }
-      return node;
+      throw new Error("findNodeHandle is not supported on web. Use the ref property on the component instead.");
     }, "findNodeHandle");
     var _default = exports2.default = findNodeHandle;
-    module2.exports = exports2.default;
-  }
-});
-
-// node_modules/react-native-web/dist/cjs/exports/unmountComponentAtNode/index.js
-var require_unmountComponentAtNode = __commonJS({
-  "node_modules/react-native-web/dist/cjs/exports/unmountComponentAtNode/index.js"(exports2, module2) {
-    "use strict";
-    exports2.__esModule = true;
-    exports2.default = void 0;
-    var _reactDom = require("react-dom");
-    var _default = exports2.default = _reactDom.unmountComponentAtNode;
     module2.exports = exports2.default;
   }
 });
@@ -9963,15 +9909,10 @@ var require_render = __commonJS({
   "node_modules/react-native-web/dist/cjs/exports/render/index.js"(exports2) {
     "use strict";
     "use client";
-    var _interopRequireDefault = require_interopRequireDefault().default;
     exports2.__esModule = true;
-    exports2.default = renderLegacy;
+    exports2.default = render;
     exports2.hydrate = hydrate;
-    exports2.hydrateLegacy = hydrateLegacy;
-    exports2.render = render;
-    var _reactDom = require("react-dom");
     var _client = require("react-dom/client");
-    var _unmountComponentAtNode = _interopRequireDefault(require_unmountComponentAtNode());
     var _dom = require_dom();
     function hydrate(element, root) {
       (0, _dom.createSheet)(root);
@@ -9985,26 +9926,21 @@ var require_render = __commonJS({
       return reactRoot;
     }
     __name(render, "render");
-    function hydrateLegacy(element, root, callback) {
-      (0, _dom.createSheet)(root);
-      (0, _reactDom.hydrate)(element, root, callback);
-      return {
-        unmount: /* @__PURE__ */ __name(function unmount() {
-          return (0, _unmountComponentAtNode.default)(root);
-        }, "unmount")
-      };
+  }
+});
+
+// node_modules/react-native-web/dist/cjs/exports/unmountComponentAtNode/index.js
+var require_unmountComponentAtNode = __commonJS({
+  "node_modules/react-native-web/dist/cjs/exports/unmountComponentAtNode/index.js"(exports2, module2) {
+    "use strict";
+    exports2.__esModule = true;
+    exports2.default = unmountComponentAtNode;
+    function unmountComponentAtNode(rootTag) {
+      rootTag.unmount();
+      return true;
     }
-    __name(hydrateLegacy, "hydrateLegacy");
-    function renderLegacy(element, root, callback) {
-      (0, _dom.createSheet)(root);
-      (0, _reactDom.render)(element, root, callback);
-      return {
-        unmount: /* @__PURE__ */ __name(function unmount() {
-          return (0, _unmountComponentAtNode.default)(root);
-        }, "unmount")
-      };
-    }
-    __name(renderLegacy, "renderLegacy");
+    __name(unmountComponentAtNode, "unmountComponentAtNode");
+    module2.exports = exports2.default;
   }
 });
 
@@ -11867,6 +11803,7 @@ var require_View = __commonJS({
     View11.displayName = "View";
     var styles = _StyleSheet.default.create({
       view$raw: {
+        alignContent: "flex-start",
         alignItems: "stretch",
         backgroundColor: "transparent",
         border: "0 solid black",
@@ -14383,7 +14320,6 @@ var require_VirtualizedList = __commonJS({
     var _ScrollView = _interopRequireDefault(require_ScrollView());
     var _View = _interopRequireDefault(require_View());
     var _StyleSheet = _interopRequireDefault(require_StyleSheet());
-    var _findNodeHandle = _interopRequireDefault(require_findNodeHandle());
     var _Batchinator = _interopRequireDefault(require_Batchinator());
     var _clamp = _interopRequireDefault(require_clamp2());
     var _infoLog = _interopRequireDefault(require_infoLog());
@@ -19103,7 +19039,7 @@ var require_Text = __commonJS({
       textMultiLine: {
         display: "-webkit-box",
         maxWidth: "100%",
-        overflow: "hidden",
+        overflow: "clip",
         textOverflow: "ellipsis",
         WebkitBoxOrient: "vertical"
       },
@@ -21654,8 +21590,8 @@ var require_renderApplication = __commonJS({
     var _StyleSheet = _interopRequireDefault(require_StyleSheet());
     var _react = _interopRequireDefault(require("react"));
     function renderApplication(RootComponent, WrapperComponent, callback, options) {
-      var shouldHydrate = options.hydrate, initialProps = options.initialProps, mode = options.mode, rootTag = options.rootTag;
-      var renderFn = shouldHydrate ? mode === "concurrent" ? _render.hydrate : _render.hydrateLegacy : mode === "concurrent" ? _render.render : _render.default;
+      var shouldHydrate = options.hydrate, initialProps = options.initialProps, rootTag = options.rootTag;
+      var renderFn = shouldHydrate ? _render.hydrate : _render.default;
       (0, _invariant.default)(rootTag, "Expect to have a valid rootTag, instead got ", rootTag);
       return renderFn(/* @__PURE__ */ _react.default.createElement(_AppContainer.default, {
         WrapperComponent,
@@ -27584,6 +27520,7 @@ var stylePropsView = {
   transition: true,
   textWrap: true,
   backdropFilter: true,
+  WebkitBackdropFilter: true,
   background: true,
   backgroundAttachment: true,
   backgroundBlendMode: true,
@@ -28514,7 +28451,7 @@ function useConstant(fn) {
 }
 __name(useConstant, "useConstant");
 
-// node_modules/@tamagui/use-presence/dist/esm/PresenceContext.mjs
+// node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/esm/PresenceContext.mjs
 var React11 = __toESM(require("react"), 1);
 var import_jsx_runtime6 = require("react/jsx-runtime");
 var PresenceContext = React11.createContext(null);
@@ -28523,7 +28460,7 @@ var ResetPresence = /* @__PURE__ */ __name((props) => /* @__PURE__ */ (0, import
   children: props.children
 }), "ResetPresence");
 
-// node_modules/@tamagui/use-presence/dist/esm/usePresence.mjs
+// node_modules/@tamagui/animate-presence/node_modules/@tamagui/use-presence/dist/esm/usePresence.mjs
 var React12 = __toESM(require("react"), 1);
 function usePresence() {
   const context2 = React12.useContext(PresenceContext);
@@ -32065,13 +32002,13 @@ var cloneElementWithPropOrder = /* @__PURE__ */ __name((child, props) => import_
   ...props
 }), "cloneElementWithPropOrder");
 
-// node_modules/@tamagui/react-native-media-driver/dist/esm/createMedia.mjs
+// node_modules/tamagui/node_modules/@tamagui/react-native-media-driver/dist/esm/createMedia.mjs
 var import_web14 = require("@tamagui/core");
 
-// node_modules/@tamagui/react-native-media-driver/dist/esm/matchMedia.mjs
+// node_modules/tamagui/node_modules/@tamagui/react-native-media-driver/dist/esm/matchMedia.mjs
 var matchMedia = globalThis.matchMedia;
 
-// node_modules/@tamagui/react-native-media-driver/dist/esm/createMedia.mjs
+// node_modules/tamagui/node_modules/@tamagui/react-native-media-driver/dist/esm/createMedia.mjs
 function createMedia(media) {
   return (0, import_web14.setupMatchMedia)(matchMedia), media;
 }

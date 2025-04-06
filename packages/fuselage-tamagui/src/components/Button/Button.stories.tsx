@@ -1,25 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { StoryFn} from '@storybook/react';
-import { Button as LoadingButton ,DisabledButton} from "./Button";
-import {ZButton,ButtonText} from './CustomButton';
-import {Spinner,XStack,YStack,Anchor} from 'tamagui';
-import React, { useState,useEffect,useRef } from 'react';
-import {LoadingButton as Button2} from './Button';
+import {ZButton,ButtonText,ButtonIcon} from './CustomButton';
+import {Spinner,XStack,YStack,Anchor, ButtonFrame,Button as TamaguiButton} from 'tamagui';
+import React, { useState } from 'react';
+import { ArrowLeft } from '@tamagui/lucide-icons';
+import {Icon as CIcon} from './Icon';
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-const meta: Meta<typeof LoadingButton> = {
+const meta: Meta<typeof ZButton> = {
   title: "Button",
-  component: LoadingButton,
+  component: ZButton,
   tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: {
-      control: "color",
-    },
-  },
+  // argTypes: {ArrowLeft
+  //   backgroundColor: {
+  //     control: "color",
+  //   },
+  // },
 };
 
 
 export default meta;
-type Story = StoryObj<typeof LoadingButton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 // export const Default: Story = {
@@ -130,16 +129,109 @@ export const AsLink: StoryFn<typeof ZButton> = () => {
 )
 };
 
-export const States: Story = {
-  render: (args) => <DisabledButton {...args} />,
-  args: {
-    label: "Disabled Button",
-  },
-};
+export const States: StoryFn<typeof ZButton> = () => {
+  return (
+    <YStack space="$4">
+      <XStack space="$5">
+        <ZButton borderRadius="$1" onPress={() => {}} className="hover">
+          <ButtonText>Hover</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" onPress={() => {}} className="active">
+          <ButtonText>Active</ButtonText>
+        </ZButton>
+      </XStack>
 
-export const AsIconButton: Story = {
-  render: (args) => <DisabledButton {...args} />,
-  args: {
-    label: "Disabled Button",
-  },
+      <XStack space="$5">
+        <ZButton borderRadius="$1" onPress={() => {}} className="focus">
+          <ButtonText>Focus</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" onPress={() => {}} className="focus-visible">
+          <ButtonText>Focus Visible</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" disabled>
+          <ButtonText disabled>Disabled</ButtonText>
+        </ZButton>
+      </XStack>
+
+      {/* Button Variations (Primary, Secondary, etc.) */}
+      <XStack space="$5">
+        <ZButton borderRadius="$1" primary>
+          <ButtonText>Primary</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" secondary>
+          <ButtonText>Secondary</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" danger>
+          <ButtonText>Danger</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" secondaryDanger>
+          <ButtonText color="#FFC1C9">Secondary Danger</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" warning>
+          <ButtonText>Warning</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" secondaryWarning>
+          <ButtonText color="yellow">Secondary Warning</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" success>
+          <ButtonText>Success</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" secondarySuccess>
+          <ButtonText color="#1D7256">Secondary Success</ButtonText>
+        </ZButton>
+      </XStack>
+
+      {/* Small Button Variations */}
+      <XStack space="$5">
+        <ZButton borderRadius="$1" size="sm" onPress={() => {}} className="hover">
+          <ButtonText>Hover</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" size="sm" onPress={() => {}} className="active">
+          <ButtonText>Active</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" size="sm" onPress={() => {}} className="focus">
+          <ButtonText>Focus</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" size="sm" onPress={() => {}} className="focus-visible">
+          <ButtonText>Focus Visible</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" size="sm" disabled>
+          <ButtonText disabled>Disabled</ButtonText>
+        </ZButton>
+      </XStack>
+
+      <XStack space="$5">
+        <ZButton borderRadius="$1" size="sm" primary>
+          <ButtonText>Primary</ButtonText>
+        </ZButton>
+        <ZButton borderRadius="$1" size="sm" secondary>
+          <ButtonText>Secondary</ButtonText>
+        </ZButton>
+      </XStack>
+    </YStack>
+  );
+};
+export const AsIconButton: StoryFn<typeof ZButton> = () => {
+  return (
+    <CIcon severity='ArrowLeft'> 
+    </CIcon>
+)
 };
