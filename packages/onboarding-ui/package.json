@@ -77,7 +77,7 @@
     "typescript": "~5.7.3"
   },
   "dependencies": {
-    "i18next": "~21.6.16",
+    "i18next": "~24.2.3",
     "react-hook-form": "~7.54.2"
   },
   "peerDependencies": {
