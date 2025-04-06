@@ -5822,7 +5822,7 @@ __metadata:
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.5.2"
     react-dom: "npm:~18.3.1"
-    react-timing-hooks: "npm:~4.0.2"
+    react-timing-hooks: "npm:~5.1.0"
     rimraf: "npm:~3.0.2"
     storybook: "npm:~8.6.0"
     storybook-dark-mode: "npm:~4.0.2"
@@ -22418,12 +22418,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-timing-hooks@npm:~4.0.2":
-  version: 4.0.2
-  resolution: "react-timing-hooks@npm:4.0.2"
+"react-timing-hooks@npm:~5.1.0":
+  version: 5.1.0
+  resolution: "react-timing-hooks@npm:5.1.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/0d1c7b37e4d86932ad092ce248dd711521396ae36a91329bf6a8dfbdf904d7e45475946ead0e7991020a8546a0fb61d69c05d6bcbd417901b18932b83d688984
+  checksum: 10/ad8380b9f5aed9d97525532f827a4b38aab81fac7374a3af76c3f9b82b8894978050098f8cccbb3df8885133eba9ce2eedd7bb3ef59d8af4fa02e30ed8899e48
   languageName: node
   linkType: hard
 
