@@ -29,6 +29,6 @@
     "jotai": "^2.5.1"
   },
   "devDependencies": {
-    "@tamagui/build": "1.75.9"
+    "@tamagui/build": "1.125.33"
   }
 }
