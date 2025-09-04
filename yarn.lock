@@ -4065,6 +4065,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@peggyjs/from-mem@npm:1.3.5":
+  version: 1.3.5
+  resolution: "@peggyjs/from-mem@npm:1.3.5"
+  dependencies:
+    semver: "npm:7.6.3"
+  checksum: 10/73e58a1f371d59a0c80afe544aeb34205032804b7b2ef4fda260a4e4a348a6aea7844bfe5105547e2454ec9777d032d7459e725bf908e53002f472d1f747d1fd
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -6144,7 +6153,7 @@ __metadata:
     eslint: "npm:~9.21.0"
     lint-all: "workspace:~"
     npm-run-all: "npm:^4.1.5"
-    peggy: "npm:3.0.2"
+    peggy: "npm:4.2.0"
     prettier: "npm:~3.5.2"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.2.6"
@@ -12998,7 +13007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^10.0.0, commander@npm:^10.0.1":
+"commander@npm:^10.0.1":
   version: 10.0.1
   resolution: "commander@npm:10.0.1"
   checksum: 10/8799faa84a30da985802e661cc9856adfaee324d4b138413013ef7f087e8d7924b144c30a1f1405475f0909f467665cd9e1ce13270a2f41b141dab0b7a58f3fb
@@ -21179,15 +21188,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"peggy@npm:3.0.2":
-  version: 3.0.2
-  resolution: "peggy@npm:3.0.2"
+"peggy@npm:4.2.0":
+  version: 4.2.0
+  resolution: "peggy@npm:4.2.0"
   dependencies:
-    commander: "npm:^10.0.0"
+    "@peggyjs/from-mem": "npm:1.3.5"
+    commander: "npm:^12.1.0"
     source-map-generator: "npm:0.8.0"
   bin:
     peggy: bin/peggy.js
-  checksum: 10/dd1a169153d1a51d81d856af4c7e1c56874d2385092bc0cb3f2d5890779fde67f5219a9f060d855cd86664d7923e8e27140b845b856f77b93f043f34e6178c90
+  checksum: 10/51a1fc1e7eea0c2a4f3f7c9a54f8e4a5706afef2aceaa6d4ffc83cdb3815e2b7121b03271b8ea72f319055e47f9a88aa56bde655a6d65a9733deec755f0ec352
   languageName: node
   linkType: hard
 
@@ -23351,21 +23361,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:7.6.3, semver@npm:^7.1.1, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3":
+  version: 7.6.3
+  resolution: "semver@npm:7.6.3"
+  bin:
+    semver: bin/semver.js
+  checksum: 10/36b1fbe1a2b6f873559cd57b238f1094a053dbfd997ceeb8757d79d1d2089c56d1321b9f1069ce263dc64cfa922fa1d2ad566b39426fe1ac6c723c1487589e10
+  languageName: node
+  linkType: hard
+
 "semver@npm:^6.0.0, semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
   bin:
     semver: bin/semver.js
   checksum: 10/1ef3a85bd02a760c6ef76a45b8c1ce18226de40831e02a00bad78485390b98b6ccaa31046245fc63bba4a47a6a592b6c7eedc65cc47126e60489f9cc1ce3ed7e
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.1.1, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3":
-  version: 7.6.3
-  resolution: "semver@npm:7.6.3"
-  bin:
-    semver: bin/semver.js
-  checksum: 10/36b1fbe1a2b6f873559cd57b238f1094a053dbfd997ceeb8757d79d1d2089c56d1321b9f1069ce263dc64cfa922fa1d2ad566b39426fe1ac6c723c1487589e10
   languageName: node
   linkType: hard
 
